@@ -70,7 +70,7 @@ if complete_text:
         x_stats = dec(z).float()
 
 
-        result = unmap_pixels(torch.sigmoid(x_stats[:, :3]))
-        result = T.ToPILImage(mode='RGB')(result[0])
+    result = unmap_pixels(torch.sigmoid(x_stats[:, :3]))
+    result = T.ToPILImage(mode='RGB')(result[0])
 
-        st.image(result)
+    st.image(result)
