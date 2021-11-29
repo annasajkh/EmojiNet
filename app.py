@@ -31,7 +31,7 @@ from minGPT.mingpt.utils import sample
 def load_emoji_model():
     mconf = GPTConfig(8192, 1024, n_layer=8, n_head=8, n_embd=512)
     model = GPT(mconf)
-    model.load_state_dict(torch.load("emoji_model.pth"))
+    model.load_state_dict(torch.load("emoji_model.pth", map_location=torch.device("cpu")))
     model.eval()
     return model
 
