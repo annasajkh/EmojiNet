@@ -1,4 +1,3 @@
-from minGPT.mingpt.model import GPT, GPTConfig
 from dall_e import map_pixels, unmap_pixels, load_model
 from mingpt.utils import sample
 
@@ -22,6 +21,7 @@ def load_data():
 
 data = load_data()
 
+from minGPT.mingpt.model import GPT, GPTConfig
 
 @st.cache(allow_output_mutation=True)
 def load_emoji_model():
