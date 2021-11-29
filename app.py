@@ -61,7 +61,7 @@ if complete_text:
     with st.spinner("Generating..."):
         emoji_reference = [i for i in data[32*32*emoji_reference_id:32*32*(emoji_reference_id+1)][:emoji_reference_token_length]]
 
-        x = torch.tensor([8193,*emoji_reference], dtype=torch.long)[None,...].to(trainer.device)
+        x = torch.tensor([8193,*emoji_reference], dtype=torch.long)[None,...].to(device)
         y = sample(model, x, 1024 - 512 + 1, temperature=temperature, sample=True, top_k=top_k)[0]
 
         z = y[1:-1].view(1, 32, 32).cuda().long()
