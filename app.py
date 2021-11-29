@@ -78,8 +78,7 @@ if complete_text:
 
     result_ref = unmap_pixels(torch.sigmoid(x_stats_ref[:, :3]))
     result_ref = T.ToPILImage(mode='RGB')(result_ref[0])
-    result_ref = result_ref.crop((0,0,result_ref.size[0],result_ref.size[1] * (emoji_reference_token_length / 1024))
-
+    result_ref = result_ref.crop((0,0,result_ref.size[0],result_ref.size[1] * (emoji_reference_token_length / 1024)))
     result = unmap_pixels(torch.sigmoid(x_stats[:, :3]))
     result = T.ToPILImage(mode='RGB')(result[0])
     
