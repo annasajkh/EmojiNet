@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import torchvision.transforms as T
 import streamlit as st
 
+import torch
 import os
 
 if torch.cuda.is_available():
