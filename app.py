@@ -68,6 +68,16 @@ if complete_text:
 
         x_stats = dec(z).float()
 
+        x = torch.tensor([8193,*[i for i in data[32*32*emoji_reference_id:32*32*(emoji_reference_id+1)]]], dtype=torch.long)[None,...].to(device)
+
+        z = x[1:-1].view(1, 32, 32).to(device).long()
+        z = F.one_hot(z, num_classes=8192).permute(0, 3, 1, 2).float()
+
+        x_stats_ref = dec(z).float()
+
+
+    result_ref = unmap_pixels(torch.sigmoid(x_stats_ref[:, :3]))
+    result_ref = T.ToPILImage(mode='RGB')(result[0])
 
     result = unmap_pixels(torch.sigmoid(x_stats[:, :3]))
     result = T.ToPILImage(mode='RGB')(result[0])
