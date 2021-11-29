@@ -1,5 +1,4 @@
 from dall_e import map_pixels, unmap_pixels, load_model
-from mingpt.utils import sample
 
 import matplotlib.pyplot as plt
 import torchvision.transforms as T
@@ -24,6 +23,7 @@ data = load_data()
 os.system("ls")
 
 #from minGPT.mingpt.model import GPT, GPTConfig
+#from minGPT.mingpt.utils import sample
 
 @st.cache(allow_output_mutation=True)
 def load_emoji_model():
