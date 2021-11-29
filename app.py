@@ -61,16 +61,16 @@ if complete_text:
         emoji_reference = [i for i in data[32*32*emoji_reference_id:32*32*(emoji_reference_id+1)][:emoji_reference_token_length]]
 
         x = torch.tensor([8193,*emoji_reference], dtype=torch.long)[None,...].to(device)
-        y = sample(model, x, 1024 - emoji_reference_token_length + 1, temperature=temperature, sample=True, top_k=top_k)[0]
+        y = sample(model, x, 1024 - emoji_reference_token_length, temperature=temperature, sample=True, top_k=top_k)[0]
 
-        z = y[1:-1].view(1, 32, 32).to(device).long()
+        z = y[1:].view(1, 32, 32).to(device).long()
         z = F.one_hot(z, num_classes=8192).permute(0, 3, 1, 2).float()
 
         x_stats = dec(z).float()
 
-        x = torch.tensor([8193,*[i for i in data[32*32*emoji_reference_id:32*32*(emoji_reference_id+1)]]], dtype=torch.long)[None,...].to(device)
+        x = torch.tensor([i for i in data[32*32*emoji_reference_id:32*32*(emoji_reference_id+1)]], dtype=torch.long)[None,...].to(device)
 
-        z = x[1:-1].view(1, 32, 32).to(device).long()
+        z = x.view(1, 32, 32).to(device).long()
         z = F.one_hot(z, num_classes=8192).permute(0, 3, 1, 2).float()
 
         x_stats_ref = dec(z).float()
