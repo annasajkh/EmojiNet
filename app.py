@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import torchvision.transforms as T
 import streamlit as st
 import numpy as np
+from torch.nn import functional as F
 
 import torch
 import os
