@@ -3,6 +3,7 @@ from dall_e import map_pixels, unmap_pixels, load_model
 import matplotlib.pyplot as plt
 import torchvision.transforms as T
 import streamlit as st
+import numpy as np
 
 import torch
 import os
