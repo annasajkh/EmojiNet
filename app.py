@@ -24,8 +24,8 @@ data = load_data()
 
 os.system("ls")
 
-#from minGPT.mingpt.model import GPT, GPTConfig
-#from minGPT.mingpt.utils import sample
+from minGPT.mingpt.model import GPT, GPTConfig
+from minGPT.mingpt.utils import sample
 
 @st.cache(allow_output_mutation=True)
 def load_emoji_model():
