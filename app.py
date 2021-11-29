@@ -45,7 +45,7 @@ dec = load_dalle()
 
 
 st.title("EmojiNet")
-st.text("AI that can generate emoji")
+st.text("AI that can generate emoji (WARNING IT'S SO SLOW)")
 
 form = st.form(key="submit-form")
 emoji_reference_id = form.slider(label="emoji reference id (emoji to reference to)", min_value=0, max_value=14253, value=0)
