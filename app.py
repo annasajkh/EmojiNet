@@ -77,9 +77,12 @@ if complete_text:
 
 
     result_ref = unmap_pixels(torch.sigmoid(x_stats_ref[:, :3]))
-    result_ref = T.ToPILImage(mode='RGB')(result[0])
+    result_ref = T.ToPILImage(mode='RGB')(result_ref[0])
 
     result = unmap_pixels(torch.sigmoid(x_stats[:, :3]))
     result = T.ToPILImage(mode='RGB')(result[0])
-
+    
+    st.write("reference")
+    st.image(result_ref)
+    st.write("generated")
     st.image(result)
