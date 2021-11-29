@@ -17,7 +17,7 @@ else:
 @st.cache(allow_output_mutation=True)
 def load_data():
     os.system("git clone https://github.com/karpathy/minGPT.git") 
-    os.system("gdown --id 1LjvV1oGjPxZULM_RsMlU1Qs-24t-MuOS")
+    os.system("gdown --id 1_L_txD3QA6sa7IKNUG9jOxmMYY5ooezd")
     os.system("gdown --id 1-AiVgEzuozPSE-_ngJ0COYJHY2sHJ6NC")
     return np.load("emoji_dataset.npy").flatten()
 
