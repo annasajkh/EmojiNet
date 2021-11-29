@@ -48,10 +48,10 @@ st.title("EmojiNet")
 st.text("AI that can generate emoji")
 
 form = st.form(key="submit-form")
-emoji_reference_id = form.slider(label="emoji reference id", min_value=0, max_value=14253, value=0)
-emoji_reference_token_length = form.slider(label="emoji reference token length", min_value=0, max_value=1024, value=512)
+emoji_reference_id = form.slider(label="emoji reference id (emoji to reference to)", min_value=0, max_value=14253, value=0)
+emoji_reference_token_length = form.slider(label="emoji reference token length (how many token the reference is)", min_value=0, max_value=1024, value=512)
 temperature = form.slider(label="Temperature (Controls the \"craziness\" of the text)", min_value=0.01, max_value=1.0, value=0.7)
-top_k = form.slider(label="Top K (If nonzero, limits the sampled tokens to the top k values)", min_value=0, max_value=100, value=40)
+top_k = form.slider(label="Top K (If nonzero, limits the sampled tokens to the top k values)", min_value=1, max_value=100, value=40)
 
 
 complete_text = form.form_submit_button("generate")
